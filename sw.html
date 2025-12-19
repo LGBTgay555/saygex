@@ -1,0 +1,152 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Switch - HALO Shop</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+  <style>
+    .product-card {
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 15px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .product-card:hover { transform: scale(1.05); }
+    .product-card img {
+      max-width: 100%;
+      height: 180px;
+      object-fit: contain;
+      margin-bottom: 10px;
+    }
+    .header {
+      background: #111;
+      color: #fff;
+      padding: 10px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .header .logo {
+      font-size: 28px;
+      font-weight: bold;
+      color: #FFD600;
+    }
+    .header .search {
+      flex: 1;
+      margin: 0 20px;
+      position: relative;
+    }
+    .header .search input {
+      width: 100%;
+      border-radius: 20px;
+      border: none;
+      padding: 6px 40px 6px 12px;
+    }
+    .header .search button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      border: none;
+      background: #FFD600;
+      border-radius: 0 20px 20px 0;
+    }
+    .nav { background: #f9f9f9; padding: 12px 40px; display: flex; gap: 20px; }
+    .nav a { text-decoration: none; font-weight: 500; color: #222; }
+    .nav a:hover { color: #FFD600; }
+    footer { background: #111; color: #fff; text-align: center; padding: 20px; margin-top: 30px; }
+  </style>
+</head>
+<body>
+
+  
+  <div class="header">
+    <div class="logo">HALO</div>
+    <div class="search">
+      <input type="text" placeholder="Bấm để tìm sản phẩm">
+      <button><i class="bi bi-search"></i></button>
+    </div>
+    <div>HOTLINE <b style="color:#FFD600;">028 7306 8666</b></div>
+  </div>
+
+ 
+  <div class="nav">
+    <a href="index.html">Trang chủ</a>
+    <a href="kb.html">Bàn phím</a>
+    <a href="c.html">Chuột</a>
+    <a href="sw.html">Switch</a>
+    <a href="tn.html">Tai nghe</a>
+  </div>
+
+
+  <div class="container mt-3">
+    <p><a href="index.html">Trang chủ</a> / <a href="#">Sản phẩm</a> / <b>Switch</b></p>
+    <h2 class="fw-bold mb-3">Sản phẩm Switch</h2>
+
+    <div class="d-flex justify-content-between mb-3">
+      <div>Hiển thị tất cả 5 sản phẩm</div>
+      <div>
+        Show:
+        <select>
+          <option>9</option>
+          <option selected>18</option>
+          <option>24</option>
+        </select>
+        <select>
+          <option selected>Sắp xếp mặc định</option>
+          <option>Giá tăng dần</option>
+          <option>Giá giảm dần</option>
+        </select>
+      </div>
+    </div>
+
+   
+    <div class="row g-4">
+      <div class="col-md-3">
+        <div class="product-card">
+          <img src="switch/sw1.jpg" alt="Switch Akko CS 1">
+          <h6>Switch Akko CS #1</h6>
+          <p class="text-danger fw-bold">300.000 đ</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="product-card">
+          <img src="switch/sw2.jpg" alt="Switch Akko CS 2">
+          <h6>Switch Akko CS #2</h6>
+          <p class="text-danger fw-bold">320.000 đ</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="product-card">
+          <img src="switch/sw3.jpg" alt="Switch Akko CS 3">
+          <h6>Switch Akko CS #3</h6>
+          <p class="text-danger fw-bold">280.000 đ</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="product-card">
+          <img src="switch/sw4.jpg" alt="Switch Akko CS 4">
+          <h6>Switch Akko CS #4</h6>
+          <p class="text-danger fw-bold">350.000 đ</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="product-card">
+          <img src="switch/sw5.jpg" alt="Switch Akko CS 5">
+          <h6>Switch Akko CS #5</h6>
+          <p class="text-danger fw-bold">310.000 đ</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 HALO Shop - Switch
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.js"></script>
+</body>
+</html>

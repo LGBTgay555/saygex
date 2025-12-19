@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giỏ hàng - HALO Shop</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    body {
+      background: #f5f5f5;
+    }
+    .navbar {
+      background: #111;
+    }
+    .navbar-brand {
+      color: #FFD600 !important;
+      font-weight: bold;
+      font-size: 28px;
+    }
+    footer {
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 15px 0;
+      margin-top: 40px;
+    }
+    .cart-img {
+      width: 70px;
+    }
+    .qty-btn {
+      width: 32px;
+      height: 32px;
+      padding: 0;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg px-4">
+  <a class="navbar-brand" href="index1.html">HALO</a>
+
+  <form class="d-flex mx-auto">
+    <input class="form-control me-2" type="text" placeholder="Tìm sản phẩm">
+    <button class="btn btn-warning">
+      <i class="bi bi-search"></i>
+    </button>
+  </form>
+
+  <a href="cart.html" class="text-white fs-4 position-relative">
+    <i class="bi bi-cart3"></i>
+    <span id="cart-count"
+      class="badge bg-warning text-dark position-absolute top-0 start-100 translate-middle">
+      0
+    </span>
+  </a>
+</nav>
+
+<!-- CONTENT -->
+<div class="container my-4">
+
+  <!-- BREADCRUMB -->
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="index1.html">Trang chủ</a></li>
+      <li class="breadcrumb-item active">Giỏ hàng</li>
+    </ol>
+  </nav>
+
+  <!-- TITLE + BACK BUTTON -->
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="fw-bold mb-0">GIỎ HÀNG CỦA BẠN</h2>
+    <a href="index1.html" class="btn btn-outline-dark">
+      <i class="bi bi-arrow-left"></i> Tiếp tục mua sắm
+    </a>
+  </div>
+
+  <!-- CART TABLE -->
+  <div class="table-responsive">
+    <table class="table align-middle">
+      <thead class="table-dark">
+        <tr>
+          <th>Sản phẩm</th>
+          <th>Giá</th>
+          <th>Số lượng</th>
+          <th>Tạm tính</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="cart-body"></tbody>
+    </table>
+  </div>
+
+  <!-- TOTAL -->
+  <div class="d-flex justify-content-end">
+    <div class="bg-white p-4 rounded shadow-sm" style="min-width:300px">
+      <h5>Tổng tiền</h5>
+      <h4 id="total-price" class="text-danger">0 đ</h4>
+      <button class="btn btn-warning w-100 mt-3">
+        Thanh toán
+      </button>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  © 2025 HALO Shop - Đồ Công Nghệ
+</footer>
+
+<!-- SCRIPT -->
+<script>
+const cartBody = document.getElementById("cart-body");
+const totalPrice = document.getElementById("total-price");
+const cartCount = document.getElementById("cart-count");
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function updateCartCount() {
+  cartCount.textContent = cart.reduce((sum, i) => sum + i.quantity, 0);
+}
+
+function renderCart() {
+  cartBody.innerHTML = "";
+  let total = 0;
+
+  if (cart.length === 0) {
+    cartBody.innerHTML = `
+      <tr>
+        <td colspan="5" class="text-center text-muted">
+          Giỏ hàng trống <br>
+          <a href="index1.html" class="btn btn-warning mt-2">
+            <i class="bi bi-cart-plus"></i> Quay lại mua hàng
+          </a>
+        </td>
+      </tr>`;
+    totalPrice.textContent = "0 đ";
+    updateCartCount();
+    return;
+  }
+
+  cart.forEach((item, index) => {
+    const itemTotal = item.price * item.quantity;
+    total += itemTotal;
+
+    cartBody.innerHTML += `
+      <tr>
+        <td>
+          <img src="${item.img}" class="cart-img me-2">
+          ${item.name}
+        </td>
+        <td>${item.price.toLocaleString()} đ</td>
+        <td>
+          <button class="btn btn-outline-secondary qty-btn" onclick="changeQty(${index}, -1)">−</button>
+          <span class="mx-2">${item.quantity}</span>
+          <button class="btn btn-outline-secondary qty-btn" onclick="changeQty(${index}, 1)">+</button>
+        </td>
+        <td>${itemTotal.toLocaleString()} đ</td>
+        <td>
+          <button class="btn btn-danger btn-sm" onclick="removeItem(${index})">
+            <i class="bi bi-trash"></i>
+          </button>
+        </td>
+      </tr>
+    `;
+  });
+
+  totalPrice.textContent = total.toLocaleString() + " đ";
+  updateCartCount();
+}
+
+function changeQty(index, value) {
+  cart[index].quantity += value;
+  if (cart[index].quantity <= 0) {
+    cart.splice(index, 1);
+  }
+  saveCart();
+}
+
+function removeItem(index) {
+  cart.splice(index, 1);
+  saveCart();
+}
+
+function saveCart() {
+  localStorage.setItem("cart", JSON.stringify(cart));
+  renderCart();
+}
+
+renderCart();
+</script>
+
+</body>
+</html>
