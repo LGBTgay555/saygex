@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đăng nhập</title>
+
+    
+   <link rel="stylesheet" href="css/style.css" />
+
+  </head>
+
+  <body>
+    <div class="container">
+      <form class="form">
+        <h2>Đăng nhập</h2>
+
+        <input type="text" class="username" placeholder="Email" />
+        <input type="password" class="password" placeholder="Mật khẩu" />
+
+        <button type="button" class="btn_login">Đăng nhập</button>
+
+        <p class="switch">
+          Chưa có tài khoản? <a href="dk.html">Đăng ký</a>
+        </p>
+      </form>
+    </div>
+
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
+      import {
+        getAuth,
+        signInWithEmailAndPassword,
+      } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyBopXvAD-MSkEv_3IwqllbUA2dUXX3InNs",
+        authDomain: "jsi36-dedb3.firebaseapp.com",
+        projectId: "jsi36-dedb3",
+        storageBucket: "jsi36-dedb3.firebasestorage.app",
+        messagingSenderId: "708584713401",
+        appId: "1:708584713401:web:feb4903c40150ac3ae3f68",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+      const btn = document.querySelector(".btn_login");
+
+      function handleLogin() {
+        const email = document.querySelector(".username").value;
+        const pass = document.querySelector(".password").value;
+
+        if (!email || !pass) {
+          alert("Vui lòng nhập đầy đủ thông tin!");
+          return;
+        }
+
+        signInWithEmailAndPassword(auth, email, pass)
+          .then((userCredential) => {
+            console.log("Đăng nhập thành công:", userCredential.user);
+            window.location.href = "h.html";
+          })
+          .catch((error) => {
+            console.log(error.message);
+            alert("Sai tài khoản hoặc mật khẩu!");
+          });
+      }
+
+      btn.addEventListener("click", handleLogin);
+    </script>
+  </body>
+</html>

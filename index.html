@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HALO Shop - Đồ Công Nghệ</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    .navbar {
+      background: #111;
+    }
+    .navbar-brand {
+      color: #FFD600 !important;
+      font-weight: bold;
+      font-size: 28px;
+    }
+    .search-box {
+      border-radius: 5px;
+      border: none;
+      padding: 6px 10px;
+      width: 400px;
+    }
+    .search-btn {
+      background: #FFD600;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 5px;
+    }
+
+    .product-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .product-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+    }
+
+    .btn-outline-secondary {
+      transition: transform 0.2s ease, background 0.3s ease;
+    }
+    .btn-outline-secondary:hover {
+      transform: scale(1.1);
+      background: #FFD600;
+      color: #000;
+      border-color: #FFD600;
+    }
+
+    footer {
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 15px 0;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  
+<nav class="navbar navbar-expand-lg px-4">
+  <h1 id="api-logo">HALO</h1>
+
+
+  <form class="d-flex mx-auto" action="timkiem.html" method="GET">
+    <input class="search-box" type="text" placeholder="Bấm để tìm sản phẩm" name="q">
+    <button class="search-btn" type="submit"><i class="bi bi-search"></i></button>
+  </form>
+  <div class="d-flex align-items-center gap-3">
+    <div class="text-white">
+      <i class="bi bi-telephone"></i> HOTLINE <span class="text-warning">028 7306 8666</span>
+    </div>
+    <a href="#" class="text-white fs-4"><i class="bi bi-cart3"></i></a>
+  </div>
+</nav>
+
+
+  
+  <div class="container my-4">
+
+    
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+        <li class="breadcrumb-item"><a href="#">Sản phẩm</a></li>
+        <li class="breadcrumb-item active">Đồ Công Nghệ</li>
+      </ol>
+    </nav>
+
+    <h2 class="fw-bold mb-3">ĐỒ CÔNG NGHỆ</h2>
+
+    
+    <div class="mb-4">
+      <a href="kb.html" class="btn btn-outline-secondary">Bàn phím</a>
+      <a href="c.html" class="btn btn-outline-secondary">Chuột</a>
+      <a href="sw.html" class="btn btn-outline-secondary">Switch</a>
+      <a href="tn.html" class="btn btn-outline-secondary">Tai nghe</a>
+    </div>
+
+    
+    <div class="d-flex justify-content-end align-items-center gap-2 mb-4">
+      <label for="show" class="me-2">Hiển thị:</label>
+      <select id="show" class="form-select form-select-sm" style="width: 80px;">
+        <option>9</option>
+        <option>12</option>
+        <option selected>18</option>
+        <option>24</option>
+      </select>
+      <select class="form-select form-select-sm">
+        <option selected>Sắp xếp mặc định</option>
+        <option>Giá tăng dần</option>
+        <option>Giá giảm dần</option>
+      </select>
+    </div>
+
+    <!-- Danh sách sản phẩm -->
+    <div class="row g-4">
+      <div class="col-md-3">
+    <div class="card product-card h-100">
+      <img src="chuot/c1.webp" class="card-img-top" alt="Chuột 1">
+      <div class="card-body text-center">
+        <h6 class="card-title">Chuột Gaming C1</h6>
+        <p class="text-danger fw-bold">1,200,000 đ</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="card product-card h-100">
+      <img src="chuot/c2.webp" class="card-img-top" alt="Chuột 2">
+      <div class="card-body text-center">
+        <h6 class="card-title">Chuột Gaming C2</h6>
+        <p class="text-danger fw-bold">1,350,000 đ</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="card product-card h-100">
+      <img src="chuot/c3.webp" class="card-img-top" alt="Chuột 3">
+      <div class="card-body text-center">
+        <h6 class="card-title">Chuột Gaming C3</h6>
+        <p class="text-danger fw-bold">1,500,000 đ</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="card product-card h-100">
+      <img src="chuot/c4.webp" class="card-img-top" alt="Chuột 4">
+      <div class="card-body text-center">
+        <h6 class="card-title">Chuột Gaming C4</h6>
+        <p class="text-danger fw-bold">1,700,000 đ</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="card product-card h-100">
+      <img src="chuot/c5.webp" class="card-img-top" alt="Chuột 5">
+      <div class="card-body text-center">
+        <h6 class="card-title">Chuột Gaming C5</h6>
+        <p class="text-danger fw-bold">1,900,000 đ</p>
+      </div>
+    </div>
+  </div>
+
+ 
+  <div class="col-md-3">
+    <div class="card product-card h-100">
+      <img src="keyboard/kb1.webp" class="card-img-top" alt="Keyboard 1">
+      <div class="card-body text-center">
+        <h6 class="card-title">Bàn phím cơ KB1</h6>
+        <p class="text-danger fw-bold">2,000,000 đ</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="card product-card h-100">
+      <img src="keyboard/kb2.webp" class="card-img-top" alt="Keyboard 2">
+      <div class="card-body text-center">
+        <h6 class="card-title">Bàn phím cơ KB2</h6>
+        <p class="text-danger fw-bold">2,200,000 đ</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="card product-card h-100">
+      <img src="keyboard/kb3.webp" class="card-img-top" alt="Keyboard 3">
+      <div class="card-body text-center">
+        <h6 class="card-title">Bàn phím cơ KB3</h6>
+        <p class="text-danger fw-bold">2,400,000 đ</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="card product-card h-100">
+      <img src="keyboard/kb4.webp" class="card-img-top" alt="Keyboard 4">
+      <div class="card-body text-center">
+        <h6 class="card-title">Bàn phím cơ KB4</h6>
+        <p class="text-danger fw-bold">2,600,000 đ</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="card product-card h-100">
+      <img src="keyboard/kb5.webp" class="card-img-top" alt="Keyboard 5">
+      <div class="card-body text-center">
+        <h6 class="card-title">Bàn phím cơ KB5</h6>
+        <p class="text-danger fw-bold">2,800,000 đ</p>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="col-md-3">
+    <div class="card product-card h-100">
+      <img src="switch/sw1.jpg" class="card-img-top" alt="Switch 1">
+      <div class="card-body text-center">
+        <h6 class="card-title">Switch SW1</h6>
+        <p class="text-danger fw-bold">300,000 đ</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="card product-card h-100">
+      <img src="switch/sw2.jpg" class="card-img-top" alt="Switch 2">
+      <div class="card-body text-center">
+        <h6 class="card-title">Switch SW2</h6>
+        <p class="text-danger fw-bold">350,000 đ</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="card product-card h-100">
+      <img src="switch/sw3.jpg" class="card-img-top" alt="Switch 3">
+      <div class="card-body text-center">
+        <h6 class="card-title">Switch SW3</h6>
+        <p class="text-danger fw-bold">400,000 đ</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="card product-card h-100">
+      <img src="switch/sw4.jpg" class="card-img-top" alt="Switch 4">
+      <div class="card-body text-center">
+        <h6 class="card-title">Switch SW4</h6>
+        <p class="text-danger fw-bold">450,000 đ</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="card product-card h-100">
+      <img src="switch/sw5.jpg" class="card-img-top" alt="Switch 5">
+      <div class="card-body text-center">
+        <h6 class="card-title">Switch SW5</h6>
+        <p class="text-danger fw-bold">500,000 đ</p>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="col-md-3">
+    <div class="card product-card h-100">
+      <img src="tainghe/tn1.jpg" class="card-img-top" alt="Tai nghe 1">
+      <div class="card-body text-center">
+        <h6 class="card-title">Tai nghe TN1</h6>
+        <p class="text-danger fw-bold">1,000,000 đ</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="card product-card h-100">
+      <img src="tainghe/tn2.png" class="card-img-top" alt="Tai nghe 2">
+      <div class="card-body text-center">
+        <h6 class="card-title">Tai nghe TN2</h6>
+        <p class="text-danger fw-bold">1,200,000 đ</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="card product-card h-100">
+      <img src="tainghe/tn3.png" class="card-img-top" alt="Tai nghe 3">
+      <div class="card-body text-center">
+        <h6 class="card-title">Tai nghe TN3</h6>
+        <p class="text-danger fw-bold">1,400,000 đ</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="card product-card h-100">
+      <img src="tainghe/tn4.png" class="card-img-top" alt="Tai nghe 4">
+      <div class="card-body text-center">
+        <h6 class="card-title">Tai nghe TN4</h6>
+        <p class="text-danger fw-bold">1,600,000 đ</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="card product-card h-100">
+      <img src="tainghe/tn5.png" class="card-img-top" alt="Tai nghe 5">
+      <div class="card-body text-center">
+        <h6 class="card-title">Tai nghe TN5</h6>
+        <p class="text-danger fw-bold">1,800,000 đ</p>
+      </div>
+    </div>
+  <footer>
+    © 2025 HALO Shop - Đồ Công Nghệ
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+   
+  <script>
+  
+
+
+
+  const url_api = "https://jsa44.nextgentra.com/api/anposts";
+  const api_key = "a77380280a76ea2811b475dbbcea8aeee3862a3ecb75ca0333a232116b093b2124cc0ca47b8befd91d03cf70e66940c1b8c75239f083dd96b54a2f937102928c6be43096d0d6f041d0d39d0950f7ab4e2009514eceaa70e6ff0e974c16a77d2bdf1a31b657fd74d022ad28815283bdbbe2c0dcb556c3a79ee5b4ec26b6a16d53";
+
+  fetch(url_api, {
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${api_key}`
+    }
+  })
+  .then(res => res.json())
+  .then(resp => {
+    console.log("Dữ liệu API:", resp);
+
+    const posts = resp.data;
+    if (Array.isArray(posts) && posts.length > 0) {
+      
+      const content = posts[0].content || posts[0].title ;
+      const logo = document.getElementById("api-logo");
+      logo.textContent = content;
+      logo.style.color = "#FFD700"; 
+      document.getElementById("api-logo").textContent ;
+    }
+  })
+  .catch(err => {
+    console.error("Lỗi khi tải logo:", err);
+    document.getElementById("api-logo").textContent ;
+  });
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đăng ký</title>
+
+    
+    <link rel="stylesheet" href="css/style.css" />
+
+  </head>
+
+  <body>
+    <div class="container">
+      <form id="registerForm" class="form">
+        <h2>Đăng ký tài khoản</h2>
+
+        <input type="text" id="username" placeholder="Tên đăng nhập" />
+        <input type="email" id="email" placeholder="Email" />
+        <input type="password" id="password" placeholder="Mật khẩu" />
+
+        <button type="button" id="btn_register">Đăng ký</button>
+
+        <p class="switch">
+          Đã có tài khoản? <a href="dn.html">Đăng nhập</a>
+        </p>
+      </form>
+    </div>
+
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
+      import {
+        getAuth,
+        createUserWithEmailAndPassword,
+        updateProfile,
+      } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyBopXvAD-MSkEv_3IwqllbUA2dUXX3InNs",
+        authDomain: "jsi36-dedb3.firebaseapp.com",
+        projectId: "jsi36-dedb3",
+        storageBucket: "jsi36-dedb3.firebasestorage.app",
+        messagingSenderId: "708584713401",
+        appId: "1:708584713401:web:feb4903c40150ac3ae3f68",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+
+      const inpUsername = document.getElementById("username");
+      const inpEmail = document.getElementById("email");
+      const inpPassword = document.getElementById("password");
+      const btn = document.getElementById("btn_register");
+
+      async function handleRegister() {
+        const username = inpUsername.value.trim();
+        const email = inpEmail.value.trim();
+        const password = inpPassword.value;
+
+        if (!username || !email || !password) {
+          alert("Vui lòng điền đầy đủ thông tin!");
+          return;
+        }
+
+        if (password.length < 6) {
+          alert("Mật khẩu phải ít nhất 6 ký tự.");
+          return;
+        }
+
+        try {
+          const userCredential = await createUserWithEmailAndPassword(
+            getAuth(),
+            email,
+            password
+          );
+
+          const user = userCredential.user;
+
+          await updateProfile(user, { displayName: username });
+
+          alert("Đăng ký thành công!");
+          window.location.href = "dn.html";
+        } catch (err) {
+          let msg = "Đăng ký thất bại.";
+
+          switch (err.code) {
+            case "auth/email-already-in-use":
+              msg = "Email đã được sử dụng.";
+              break;
+            case "auth/invalid-email":
+              msg = "Email không hợp lệ.";
+              break;
+            case "auth/weak-password":
+              msg = "Mật khẩu quá yếu.";
+              break;
+            default:
+              msg = err.message;
+          }
+
+          alert(msg);
+        }
+      }
+
+      btn.addEventListener("click", handleRegister);
+    </script>
+  </body>
+</html>
